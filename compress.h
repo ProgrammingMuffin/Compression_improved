@@ -21,5 +21,7 @@ extern int DEL_TOP;
 void InitLeaves(std::string input, int count[]);
 void PrintLeaves(NODE input[], int n);
 void InjectPool();
+void SortPool(NODE input[], int n); // this is the prototype use this in compress.cpp
 
 #endif
+

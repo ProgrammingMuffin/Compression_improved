@@ -13,6 +13,8 @@ int main( )
   n = (int)unique.length();
   InitLeaves(unique, count);
   InjectPool();
-  PrintLeaves(LEAF, POOL_TOP);
+  PrintLeaves(NODE_POOL, POOL_TOP);
+  SortPool(NODE_POOL, POOL_TOP);
+  PrintLeaves(NODE_POOL, POOL_TOP);
   return 0;
 }
