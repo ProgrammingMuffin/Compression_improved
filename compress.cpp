@@ -87,5 +87,27 @@ void CombineNodes()
 
 void RefillPool()
 {
-  //some crap
+  int i=0, j=0, t;
+  ClearPool();
+  t = LEAF_TOP;
+  while(t != 0)
+  {
+    for(i=0;i<DELETED_TOP;i++)
+    {
+      if(LEAF[j].current == DELETED[i])
+        break;
+    }
+    if(i == DELETED_TOP) //j is not a deleted vertex
+    {
+      NODE_POOL[POOL_TOP] = LEAF[j];
+      POOL_TOP++;
+    }
+    else
+    {
+      /*do something*/
+    }
+    j++;
+    t--;
+  }
+  SortPool(NODE_POOL, POOL_TOP);
 }
