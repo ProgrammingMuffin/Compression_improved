@@ -16,7 +16,8 @@ extern NODE NODE_POOL[256];
 extern int DELETED[256];
 extern int LEAF_TOP;
 extern int POOL_TOP;
-extern int DEL_TOP;
+extern int DELETED_TOP;
+extern int ROOTSUM;
 
 void InitLeaves(std::string input, int count[]);
 void PrintLeaves(NODE input[], int n);

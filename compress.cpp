@@ -1,12 +1,14 @@
 #include<iostream>
 #include "compress.h"
+#include "manipulate.h"
 
 NODE LEAF[128];
 NODE NODE_POOL[256];
 int DELETED[256];
 int LEAF_TOP = 0;
 int POOL_TOP = 0;
-int DEL_TOP = 0;
+int DELETED_TOP = 0;
+int ROOTSUM;
 
 void InitLeaves(std::string input, int count[]) 
 {
@@ -65,8 +67,9 @@ void CombineNodes()
   if(NODE_POOL[0].freq != ROOTSUM) //it isn't the root.
   {
     v.freq = NODE_POOL[0].freq + NODE_POOL[1].freq;
-    LEAF[LEAF_TOP] = v;
     v.current = LEAF_TOP;
+    LEAF[LEAF_TOP] = v;
+    //std::cout<<"intermediate current is "<<LEAF_TOP<<std::endl;
     current1 = NODE_POOL[0].current;
     current2 = NODE_POOL[1].current;
     LEAF[current1].subtree = 0;

@@ -48,3 +48,14 @@ void GetCount(std::string in_str, int count[], std::string temp)
        c = 0;
      }
 }
+
+int GetROOTSUM(std::string in_str, int count[])
+{
+  int sum = 0, i, n;
+  n = (int)in_str.length();
+  for(i=0;i<n;i++)
+  {
+    sum+=count[i];
+  }
+  return sum;
+}
