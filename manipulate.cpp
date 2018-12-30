@@ -7,10 +7,6 @@ void ClearPool() //clear the NODE_POOL
   POOL_TOP = 0;
 }
 
-/*void SortPool() //sort the NODE_POOL based on frequency
-{
-
-}*/
 
 std::string GetUnique(std::string str)
 {

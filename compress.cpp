@@ -57,5 +57,3 @@ void SortPool(NODE input[], int n)
     }
   }
 }
-//fixed. push this to git
-//afk, going to eat vada
