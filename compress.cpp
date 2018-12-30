@@ -3,7 +3,7 @@
 
 NODE LEAF[128];
 NODE NODE_POOL[256];
-NODE DELETED[256];
+int DELETED[256];
 int LEAF_TOP = 0;
 int POOL_TOP = 0;
 int DEL_TOP = 0;
@@ -13,7 +13,7 @@ void InitLeaves(std::string input, int count[])
   int i;
   for(i=0;i<(int)input.length();i++)
   {
-    LEAF[i].current = input[i];
+    LEAF[i].current = i;
     LEAF[i].freq = count[i];
   }
   LEAF_TOP = i;
@@ -56,4 +56,36 @@ void SortPool(NODE input[], int n)
       }
     }
   }
+}
+
+void CombineNodes()
+{
+  NODE v; //intermediate vertex/node.
+  int current1, current2; //indices of the current node.
+  if(NODE_POOL[0].freq != ROOTSUM) //it isn't the root.
+  {
+    v.freq = NODE_POOL[0].freq + NODE_POOL[1].freq;
+    LEAF[LEAF_TOP] = v;
+    v.current = LEAF_TOP;
+    current1 = NODE_POOL[0].current;
+    current2 = NODE_POOL[1].current;
+    LEAF[current1].subtree = 0;
+    LEAF[current2].subtree = 1;
+    LEAF[current1].parent = LEAF_TOP;
+    LEAF[current2].parent = LEAF_TOP;
+    DELETED[DELETED_TOP] = current1;
+    DELETED_TOP++;
+    DELETED[DELETED_TOP] = current2;
+    DELETED_TOP++;
+    LEAF_TOP++;
+  }
+  else
+  {
+    /*do something*/
+  }
+}
+
+void RefillPool()
+{
+  //some crap
 }
