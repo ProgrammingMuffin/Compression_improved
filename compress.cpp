@@ -4,6 +4,7 @@
 
 NODE LEAF[128];
 NODE NODE_POOL[256];
+NODE ROOT_NODE;
 int DELETED[256];
 int LEAF_TOP = 0;
 int POOL_TOP = 0;
@@ -60,7 +61,7 @@ void SortPool(NODE input[], int n)
   }
 }
 
-void CombineNodes()
+int CombineNodes()
 {
   NODE v; //intermediate vertex/node.
   int current1, current2; //indices of the current node.
@@ -84,8 +85,12 @@ void CombineNodes()
   }
   else
   {
-    /*do something*/
+    ROOT_NODE.current = NODE_POOL[0].current;
+    ROOT_NODE.freq = NODE_POOL[0].freq;
+    //ROOT_NODE.subtree = -1;
+    return NODE_POOL[0].current;
   }
+  return 0;
 }
 
 void RefillPool()
