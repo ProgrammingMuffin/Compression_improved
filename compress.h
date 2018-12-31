@@ -5,7 +5,7 @@
 
 struct NODE 
 {
-  char subtree;
+  int subtree;
   int parent;
   int current;
   int freq; //skip the leaf flag for now.

@@ -39,7 +39,8 @@ void PrintLeaves(NODE input[], int n)
   int i;
   for(i=0;i<n;i++)
   {
-    std::cout<<"Leaf "<<i+1<<": "<<input[i].current<<", "<<input[i].freq<<std::endl;
+    std::cout<<"Leaf "<<i+1<<": "<<input[i].subtree<<", ";
+    std::cout<<input[i].parent<<", "<<input[i].current<<", "<<input[i].freq<<std::endl;
   }
 }
 
@@ -75,6 +76,7 @@ int CombineNodes()
     current2 = NODE_POOL[1].current;
     LEAF[current1].subtree = 0;
     LEAF[current2].subtree = 1;
+    std::cout<<"CURRENT 1: "<<current1<<"  CURRENT 2: "<<current2<<std::endl;
     LEAF[current1].parent = LEAF_TOP;
     LEAF[current2].parent = LEAF_TOP;
     DELETED[DELETED_TOP] = current1;
