@@ -11,6 +11,9 @@ int POOL_TOP = 0;
 int DELETED_TOP = 0;
 int ROOTSUM;
 
+std::string PREFIX[130];
+int PREFIX_TOP;
+
 void InitLeaves(std::string input, int count[]) 
 {
   int i;
@@ -39,7 +42,7 @@ void PrintLeaves(NODE input[], int n)
   int i;
   for(i=0;i<n;i++)
   {
-    std::cout<<"Leaf "<<i+1<<": "<<input[i].subtree<<", ";
+    std::cout<<"Leaf "<<i<<": "<<input[i].subtree<<", ";
     std::cout<<input[i].parent<<", "<<input[i].current<<", "<<input[i].freq<<std::endl;
   }
 }
@@ -121,3 +124,80 @@ void RefillPool()
   }
   SortPool(NODE_POOL, POOL_TOP);
 }
+
+void GenerateTree()
+{
+  int t;
+  t = CombineNodes();
+  RefillPool();
+  while(t == 0)
+  {
+    t = CombineNodes();
+    RefillPool();
+    std::cout<<"NODE_POOL array (iteration "<<t<<"): "<<std::endl;
+    PrintLeaves(NODE_POOL, POOL_TOP);
+  }
+}
+
+
+void ObtainPrefix(int n)
+{
+  int i, t, next;
+  char c;
+  std::string temp;
+  PREFIX_TOP = 0;
+  for(i=0;i<n;i++)
+  {
+    next = i;
+    while(LEAF[next].freq != ROOTSUM)
+    {
+      if(LEAF[next].subtree == 0)
+        c = '0';
+      else
+        c = '1';
+      temp.push_back(c);
+      t = LEAF[next].parent;
+      next = t;
+    }//
+    std::cout<<"CHECK: frequency: "<<LEAF[next].freq<<std::endl;
+    PREFIX[PREFIX_TOP] = temp;
+    PREFIX_TOP++;
+    temp.clear();
+  }
+}
+
+void PrintPrefix()
+{
+  int i;
+  PrintLeaves(LEAF, LEAF_TOP);
+  for(i=0;i<PREFIX_TOP;i++)
+  {
+    std::cout<<"Prefix of "<<i<<", freq: "<<LEAF[i].freq<<" is "<<PREFIX[i]<<std::endl;
+  }  
+}
+
+//
+//what r u implementing
+//why did u not call me??
+//sorry bro, I wasnt getting the output and wanted to fix it ASAP
+//asap is not this long
+
+//what r u implementing tho
+
+//sorry I went away, grandma called me..
+//I'm generating the prefix codes for the tree that I obtained.
+// OH WAIT let me see.
+//where ? github??
+// i am a small contrubutor myself  in this project
+//thats not the point
+//
+
+//so i have to create an isseue??
+
+
+
+
+
+
+//yeahh.... I might have found something that's causing the bug.. anyways, can you put up an issue?
+//small or big, contribution is contribution = sexy
