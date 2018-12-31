@@ -74,12 +74,20 @@ int CombineNodes()
     v.freq = NODE_POOL[0].freq + NODE_POOL[1].freq;
     v.current = LEAF_TOP;
     LEAF[LEAF_TOP] = v;
-    //std::cout<<"intermediate current is "<<LEAF_TOP<<std::endl;
+    std::cout<<"intermediate current is "<<LEAF_TOP<<std::endl;
     current1 = NODE_POOL[0].current;
     current2 = NODE_POOL[1].current;
-    LEAF[current1].subtree = 0;
-    LEAF[current2].subtree = 1;
-    std::cout<<"CURRENT 1: "<<current1<<"  CURRENT 2: "<<current2<<std::endl;
+    if(LEAF[current1].freq <= LEAF[current2].freq)
+    {
+      LEAF[current1].subtree = 0;
+      LEAF[current2].subtree = 1;
+    }
+    else
+    {
+      LEAF[current1].subtree = 1;
+      LEAF[current2].subtree = 0;
+    }
+    //std::cout<<"CURRENT 1: "<<current1<<"  CURRENT 2: "<<current2<<std::endl;
     LEAF[current1].parent = LEAF_TOP;
     LEAF[current2].parent = LEAF_TOP;
     DELETED[DELETED_TOP] = current1;
@@ -135,7 +143,7 @@ void GenerateTree()
     t = CombineNodes();
     RefillPool();
     std::cout<<"NODE_POOL array (iteration "<<t<<"): "<<std::endl;
-    PrintLeaves(NODE_POOL, POOL_TOP);
+    PrintLeaves(LEAF, LEAF_TOP);
   }
 }
 
