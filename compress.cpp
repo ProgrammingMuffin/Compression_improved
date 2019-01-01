@@ -183,29 +183,3 @@ void PrintPrefix()
     std::cout<<"Prefix of "<<i<<", freq: "<<LEAF[i].freq<<" is "<<PREFIX[i]<<std::endl;
   }  
 }
-
-//
-//what r u implementing
-//why did u not call me??
-//sorry bro, I wasnt getting the output and wanted to fix it ASAP
-//asap is not this long
-
-//what r u implementing tho
-
-//sorry I went away, grandma called me..
-//I'm generating the prefix codes for the tree that I obtained.
-// OH WAIT let me see.
-//where ? github??
-// i am a small contrubutor myself  in this project
-//thats not the point
-//
-
-//so i have to create an isseue??
-
-
-
-
-
-
-//yeahh.... I might have found something that's causing the bug.. anyways, can you put up an issue?
-//small or big, contribution is contribution = sexy
