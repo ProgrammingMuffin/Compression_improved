@@ -59,3 +59,17 @@ int GetROOTSUM(std::string in_str, int count[])
   }
   return sum;
 }
+
+int GetCharPos(char c, std::string str)
+{
+  int i;
+  for(i=0;i<(int)str.length();i++)
+  {
+    if(str[i]==c)
+      break;
+  }
+  if(i==(int)str.length())
+    return -1;
+  else
+    return i;
+}

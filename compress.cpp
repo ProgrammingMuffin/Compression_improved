@@ -1,6 +1,7 @@
 #include<iostream>
 #include "compress.h"
 #include "manipulate.h"
+#include "storage.h"
 
 NODE LEAF[128];
 NODE NODE_POOL[256];
@@ -181,5 +182,31 @@ void PrintPrefix()
   for(i=0;i<PREFIX_TOP;i++)
   {
     std::cout<<"Prefix of "<<i<<", freq: "<<LEAF[i].freq<<" is "<<PREFIX[i]<<std::endl;
-  }  
+  }
+}
+
+void ResolveOutput(std::string unique)
+{
+  int i, j, pos;
+  std::string temp;
+  for(i=0;i<(int)input.length();i++)
+  {
+    pos = GetCharPos(input[i], unique);
+    if(pos >= 0)
+    {
+      temp = PREFIX[pos];
+      for(j=0;j<(int)temp.length();j++)
+      {
+        if(temp[j] == '0')
+          PushBuffer(0);
+        else
+          PushBuffer(1);
+      }
+    }
+    else
+    {
+      /*Handle this error*/
+    }
+    temp.clear();
+  }
 }

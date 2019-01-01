@@ -15,6 +15,7 @@ extern NODE LEAF[128]; //this.
 extern NODE NODE_POOL[256];
 extern NODE ROOT_NODE;
 extern std::string PREFIX[130];
+extern std::string input;
 extern int DELETED[256];
 extern int LEAF_TOP;
 extern int POOL_TOP;

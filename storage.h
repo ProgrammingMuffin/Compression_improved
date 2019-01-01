@@ -3,6 +3,12 @@
 
 #include<iostream>
 
-extern unsigned char FLUSH_BUFFER;
+extern char FLUSH_BUFFER;
+extern short BUFFER_SIZE;
+extern std::string OUTPUT;
+
+void ClearBuffer();
+void PushBuffer(char bit);
+void WriteBuffer();
 
 #endif
