@@ -209,4 +209,9 @@ void ResolveOutput(std::string unique)
     }
     temp.clear();
   }
+  if(PREV_SIZE < 8)
+  {
+    PREV_SIZE<<1;
+    PREV_SIZE = PREV_SIZE | 0;
+  }
 }
