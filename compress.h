@@ -32,6 +32,7 @@ void RefillPool();
 void GenerateTree();
 void ObtainPrefix(int n);
 void PrintPrefix();
-
+void ResolveOutput(std::string unique);
+void PrintOutput();
 #endif
 

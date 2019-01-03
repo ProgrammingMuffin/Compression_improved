@@ -1,6 +1,7 @@
 #include <iostream>
 #include "compress.h"
 #include "manipulate.h"
+#include "storage.h"
 
 std::string input = "KEBABBRO";
 
@@ -20,6 +21,7 @@ int main( )
   GenerateTree();
   ObtainPrefix((int)unique.length());
   PrintPrefix();
-  
+  ResolveOutput(unique);
+  PrintOutput();
   return 0;
 }

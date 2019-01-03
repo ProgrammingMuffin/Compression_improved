@@ -192,10 +192,11 @@ void ResolveOutput(std::string unique)
   for(i=0;i<(int)input.length();i++)
   {
     pos = GetCharPos(input[i], unique);
+    std::cout<<"POS IS: "<<pos<<std::endl;
     if(pos >= 0)
     {
       temp = PREFIX[pos];
-      for(j=0;j<(int)temp.length();j++)
+      for(j=(int)temp.length()-1;j>=0;j--)
       {
         if(temp[j] == '0')
           PushBuffer(0);
@@ -209,9 +210,16 @@ void ResolveOutput(std::string unique)
     }
     temp.clear();
   }
-  if(PREV_SIZE < 8)
+  OUTPUT.push_back(PREV_SIZE);
+}
+
+void PrintOutput()
+{
+  //std::cout<<"The output is: "<<OUTPUT<<std::endl;
+  int i;
+  for(i=0;i<(int)OUTPUT.length();i++)
   {
-    PREV_SIZE<<1;
-    PREV_SIZE = PREV_SIZE | 0;
+    std::cout<<"The output is: "<<(int)OUTPUT[i]<<"  ";
   }
+  std::cout<<std::endl;
 }

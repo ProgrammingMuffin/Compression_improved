@@ -1,6 +1,7 @@
 #include<iostream>
 #include "manipulate.h"
 #include "compress.h"
+#include "storage.h"
 
 void ClearPool() //clear the NODE_POOL
 {
