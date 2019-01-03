@@ -210,6 +210,7 @@ void ResolveOutput(std::string unique)
     }
     temp.clear();
   }
+  WriteBuffer();
   OUTPUT.push_back(PREV_SIZE);
 }
 
