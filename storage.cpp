@@ -3,10 +3,10 @@
 #include "manipulate.h"
 #include "storage.h"
 
-char FLUSH_BUFFER = 0;
+unsigned char FLUSH_BUFFER = 0;
 short BUFFER_SIZE = 0;
-char PREV_SIZE = 0;
-std::string OUTPUT = "";
+unsigned char PREV_SIZE = 0;
+std::basic_string<unsigned char> OUTPUT;
 
 void ClearBuffer()
 {
@@ -14,7 +14,7 @@ void ClearBuffer()
     BUFFER_SIZE = 0;
 }
 
-void PushBuffer(char bit)
+void PushBuffer(unsigned char bit)
 {
     FLUSH_BUFFER = FLUSH_BUFFER<<1;
     FLUSH_BUFFER = FLUSH_BUFFER | bit;

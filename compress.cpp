@@ -203,12 +203,12 @@ void ResolveOutput(std::string unique)
         else
           PushBuffer(1);
       }
+      temp.clear();
     }
     else
     {
       /*Handle this error*/
     }
-    temp.clear();
   }
   WriteBuffer();
   OUTPUT.push_back(PREV_SIZE);
@@ -220,7 +220,7 @@ void PrintOutput()
   int i;
   for(i=0;i<(int)OUTPUT.length();i++)
   {
-    std::cout<<"The output is: "<<(int)OUTPUT[i]<<"  ";
+    std::cout<<"The output is: "<<static_cast<unsigned>(OUTPUT[i])<<"  ";
   }
   std::cout<<std::endl;
 }

@@ -3,13 +3,13 @@
 
 #include<iostream>
 
-extern char FLUSH_BUFFER;
+extern unsigned char FLUSH_BUFFER;
 extern short BUFFER_SIZE;
-extern std::string OUTPUT;
-extern char PREV_SIZE;
+extern std::basic_string<unsigned char> OUTPUT;
+extern unsigned char PREV_SIZE;
 
 void ClearBuffer();
-void PushBuffer(char bit);
+void PushBuffer(unsigned char bit);
 void WriteBuffer();
 
 #endif

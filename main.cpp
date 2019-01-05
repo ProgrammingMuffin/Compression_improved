@@ -3,6 +3,11 @@
 #include "manipulate.h"
 #include "storage.h"
 
+namespace std
+{
+  typedef basic_string<unsigned char> unstring;
+}
+
 std::string input = "KEBABBRO";
 
 int main( )
